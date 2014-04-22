@@ -7,11 +7,10 @@ require "token_for/version"
 Gem::Specification.new do |s|
   s.name        = "token_for"
   s.version     = TokenFor::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of TokenFor."
-  s.description = "TODO: Description of TokenFor."
+  s.authors     = ["Janusz Pietrzyk"]
+  s.homepage    = "http://github.com/Metallord/token_for"
+  s.summary     = "Uses Rails 4.1's verifiers to provide stateless token functionality."
+  s.description = "Uses Rails 4.1's verifiers to provide stateless token functionality."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
