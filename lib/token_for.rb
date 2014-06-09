@@ -11,7 +11,7 @@ module TokenFor
       define_method("#{subject}_token") do
         verifier = self.class.verifier_for(subject)
         attr_hash = {} # The attributes need to be in a hash
-        attributes.map { |a| attr_hash.merge! a.to_sym => self.read_attribute(a) }
+        attributes.map { |a| attr_hash.merge!({a.to_sym => self.read_attribute(a)}) }
         attr_hash.merge!(expires_on: Time.zone.now + expires_in) if expires_in
         # Generate based on actual values of attributes.
         verifier.generate(attr_hash)
