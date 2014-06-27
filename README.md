@@ -1,11 +1,12 @@
 token_for uses Rails 4.1's verifiers and provides an easy way of using stateless tokens in ActiveRecord models.
 
-h1. Usage
+#Usage
+
 ```ruby
 class User < ActiveRecord::Base
   include TokenFor
 
-  token_for :password_reset, attributes: [:id, :email], expires_in: 2.hours
+  token_for :password_reset, attrs: [:id, :email], expires_in: 2.hours
 end
 ```
 This will provide two methods
