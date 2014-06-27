@@ -15,7 +15,7 @@ password_reset_token # This will return the token generated using the specified 
 ```
 
 ```ruby
-find_by_password_reset_token!(token) #This will search for a record by the specified attributes. Returns either a record or nil. If the token has expired it will raise *TokenFor::TokexExpired*.
+find_by_password_reset_token!(token) #This will search for a record by the specified attributes. Returns either a record or nil. If the token has expired it will raise *TokenFor::TokenExpired*.
 ```
 
 This project rocks and uses MIT-LICENSE.
