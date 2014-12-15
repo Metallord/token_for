@@ -5,14 +5,16 @@ module TokenFor
 
   module ClassMethods
 
-    def token_for subject, attrs: [], expires_in: nil
+    def token_for subject, attrs: [], options = {}
+      options.merge!(expires_in: nil, one_time_use: true)
 
       # A method for generating the token
       define_method("#{subject}_token") do
         verifier = self.class.verifier_for(subject)
         attr_hash = {} # The attributes need to be in a hash
         attrs.map { |a| attr_hash.merge! a.to_sym => self.read_attribute(a) }
-        attr_hash.merge!(expires_on: Time.zone.now + expires_in) if expires_in
+        attr_hash.merge!(updated_at: self.updated_at) if options[:one_time_use]
+        attr_hash.merge!(expires_on: Time.zone.now + options[:expires_in]) if options[:expires_in]
         # Generate based on actual values of attributes.
         verifier.generate(attr_hash)
       end
